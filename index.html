@@ -80,18 +80,18 @@
     content:"";
     position:absolute; inset:0;
     background: linear-gradient(180deg,
-      rgba(11,8,5,0) 0%, rgba(11,8,5,0) 46%,
-      rgba(11,8,5,0.8) 57%, rgba(11,8,5,0.8) 74%,
-      rgba(11,8,5,0) 85%, rgba(11,8,5,0) 100%);
+      rgba(11,8,5,0) 0%, rgba(11,8,5,0) 58%,
+      rgba(11,8,5,0.8) 68%, rgba(11,8,5,0.85) 90%,
+      rgba(11,8,5,0.6) 100%);
     pointer-events:none;
   }
   .hero-content{
     position: absolute; z-index: 1;
-    left: 50%; top: 65%; transform: translate(-50%, -50%);
+    left: 50%; top: 80%; transform: translate(-50%, -50%);
     width: 100%; padding: 0 24px;
   }
   @media (min-width: 700px){
-    .hero{ max-width: 640px; margin: 0 auto; }
+    .hero{ max-width: 640px; margin: 0 auto; max-height: none; }
   }
   .eyebrow{
     font-family: 'Cormorant Garamond', serif; font-style: italic;
@@ -102,8 +102,10 @@
 
   .hero h1{
     font-family: 'Cinzel Decorative', serif; font-weight: 900;
-    font-size: clamp(38px, 8vw, 66px); line-height: 1.05; margin: 0 0 8px;
+    font-size: clamp(28px, 9vw, 46px); line-height: 1.05; margin: 0 0 8px;
+    letter-spacing: -0.5px;
     color: var(--gold); text-shadow: 0 4px 28px rgba(0,0,0,0.9), 0 0 40px var(--ember-glow);
+    word-break: keep-all; overflow-wrap: normal;
   }
   .hero .tag-line{
     font-family: 'Cinzel Decorative', serif; font-weight: 700;
