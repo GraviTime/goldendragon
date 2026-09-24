@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>GoldenDRAGON — Альянс, сервер 104</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&amp;family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&amp;family=Cormorant+Garamond:wght@500;600&amp;display=swap" rel="stylesheet"/>
 <style>
   :root{--obsidian:#080604;--obsidian-2:#0d0906;--char:#130d09;--panel:#19100a;--panel-2:#21150d;--line:#3b2514;--line-soft:rgba(201,152,44,.18);--gold:#d2a33a;--gold-hot:#f2c45a;--ember:#e2591f;--ember-bright:#ff7a33;--ash:#d8cdbb;--ash-dim:#988a76;--green:#55b56b;--blue:#4b93d7;--purple:#9a6bdd;--red:#df5440;--teal:#35aa9e;--shadow:0 22px 70px rgba(0,0,0,.4);}
   *{box-sizing:border-box}
@@ -326,195 +327,226 @@
     .hero-content{display:none}
   }
 
+
+
+  /* Rules — large collapsible codex */
+  .rules-intro{max-width:820px;margin-bottom:22px!important}
+  .rules-accordion{max-width:960px;margin:28px 0 0;border:1px solid rgba(210,163,58,.18);background:linear-gradient(180deg,rgba(25,16,10,.92),rgba(13,9,6,.94));box-shadow:0 20px 55px rgba(0,0,0,.18);overflow:hidden}
+  .rules-summary{display:flex;align-items:center;gap:16px;padding:20px 22px;cursor:pointer;list-style:none;background:linear-gradient(90deg,rgba(184,138,50,.10),rgba(226,89,31,.045),transparent);border-bottom:1px solid rgba(210,163,58,.12);transition:.2s ease}
+  .rules-summary::-webkit-details-marker{display:none}
+  .rules-summary:hover{background:linear-gradient(90deg,rgba(184,138,50,.15),rgba(226,89,31,.06),transparent)}
+  .rules-summary-mark{width:42px;height:42px;display:grid;place-items:center;border:1px solid rgba(210,163,58,.34);color:var(--gold-hot);font-size:19px;box-shadow:0 0 20px rgba(184,138,50,.08);flex:0 0 auto}
+  .rules-summary-text{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .rules-summary-text strong{color:var(--gold-hot);font:700 20px/1.1 'Cinzel Decorative',serif;letter-spacing:.2px}
+  .rules-summary-text small{color:var(--ash-dim);font:italic 15px/1.2 'Cormorant Garamond',serif}
+  .rules-summary-toggle{margin-left:auto;width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(210,163,58,.30);border-radius:50%;color:var(--gold);font:400 24px/1 'Cormorant Garamond',serif;transition:.2s ease;flex:0 0 auto}
+  .rules-accordion[open] .rules-summary-toggle{transform:rotate(180deg);background:rgba(184,138,50,.08)}
+  .rules-summary:focus-visible{outline:2px solid rgba(226,89,31,.65);outline-offset:-2px}
+  .rules-list{display:grid;gap:12px;padding:18px}
+  .rule-card{display:grid;grid-template-columns:58px 1fr;gap:18px;position:relative;padding:20px 20px 20px 16px;border:1px solid rgba(210,163,58,.11);background:linear-gradient(135deg,rgba(31,19,12,.86),rgba(18,11,7,.92));box-shadow:0 10px 28px rgba(0,0,0,.10);overflow:hidden}
+  .rule-card::after{content:'';position:absolute;right:-35px;top:-40px;width:100px;height:100px;border:1px solid rgba(210,163,58,.08);transform:rotate(45deg)}
+  .rule-num{width:48px;height:48px;display:grid;place-items:center;border:1px solid rgba(210,163,58,.28);color:var(--gold-hot);background:radial-gradient(circle,rgba(184,138,50,.13),transparent 68%);font:700 16px/1 'Cinzel Decorative',serif;box-shadow:0 0 22px rgba(184,138,50,.07)}
+  .rule-body h3{margin:1px 0 9px;padding:0;border:0;background:none;color:var(--gold);font:700 21px/1.2 'Cinzel Decorative',serif}
+  .rule-body p{margin:0 0 10px;color:var(--ash);font:18px/1.55 'Cormorant Garamond',serif}
+  .rule-body p:last-child{margin-bottom:0}
+  .rule-note{margin-top:13px;padding:12px 14px;border-left:2px solid var(--ember);background:rgba(226,89,31,.045);color:var(--ash-dim);font:italic 16px/1.45 'Cormorant Garamond',serif}
+  .rule-note strong{color:var(--gold-soft);font-style:normal}
+  @media (max-width:600px){
+    .rules-summary{padding:17px 15px;gap:11px}
+    .rules-summary-mark{width:38px;height:38px;font-size:17px}
+    .rules-summary-text strong{font-size:17px}
+    .rules-summary-text small{font-size:14px}
+    .rules-list{padding:10px}
+    .rule-card{grid-template-columns:42px 1fr;gap:12px;padding:16px 13px}
+    .rule-num{width:38px;height:38px;font-size:13px}
+    .rule-body h3{font-size:18px;line-height:1.22}
+    .rule-body p{font-size:17px;line-height:1.5}
+    .rule-note{font-size:15px}
+  }
+
+  /* VS accordion */
+  #vs-week .vs-day{margin:18px 0;border:1px solid rgba(210,163,58,.16);border-left:2px solid rgba(226,89,31,.62);background:linear-gradient(180deg,rgba(30,18,11,.72),rgba(18,11,7,.72));box-shadow:0 10px 28px rgba(0,0,0,.12);overflow:hidden}
+  #vs-week .vs-day-title{position:relative;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 20px;color:var(--gold-hot);font:700 clamp(20px,5.3vw,25px) 'Cinzel Decorative',serif;letter-spacing:.2px;cursor:pointer;list-style:none;min-height:56px}
+  #vs-week .vs-day-title::-webkit-details-marker{display:none}
+  #vs-week .vs-day-title::after{content:'+';flex:0 0 auto;width:30px;height:30px;display:grid;place-items:center;border:1px solid rgba(210,163,58,.28);border-radius:50%;color:var(--gold);font:400 22px/1 'Cormorant Garamond',serif;transition:.2s ease}
+  #vs-week .vs-day[open] .vs-day-title::after{content:'−';transform:rotate(180deg);background:rgba(184,138,50,.08);box-shadow:0 0 18px rgba(184,138,50,.12)}
+  #vs-week .vs-day-title:focus-visible{outline:2px solid rgba(226,89,31,.7);outline-offset:-2px}
+  #vs-week .vs-day > ul{margin:0;padding:0 22px 22px 44px}
+  #vs-week .vs-day > ul li{margin:10px 0}
+  #vs-week .vs-day > ul li::marker{color:var(--ember-bright)}
+  #vs-week .vs-day[open] .vs-day-title{border-bottom:1px solid rgba(210,163,58,.10)}
+  @media (min-width:901px){
+    #vs-week .vs-day{margin:20px 0}
+    #vs-week .vs-day-title{padding:20px 24px;font-size:24px}
+    #vs-week .vs-day > ul{padding:2px 30px 26px 48px}
+  }
+
+  #vs-week .accordion-hint{margin:-2px 0 18px;color:var(--ash-dim);font:italic 15px/1.45 'Cormorant Garamond',serif}
 </style>
 </head>
 <body>
-
 <nav>
-  <div class="nav-inner">
-    <span class="nav-brand">
-      <img src="data:image/png;base64,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" alt="" class="nav-logo">
-      <span class="clan-title">GoldenDRAGON</span> <span class="server-tag" style="color:var(--ash-dim); font-weight:400; font-family:'Cormorant Garamond',serif; font-size:15px;">· 104</span>
-    </span>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Меню</button>
-    <div class="nav-links" id="site-menu">
-      <a href="#vs-week">VS</a>
-      <a href="#rukovodstvo">Руководство</a>
-      <a href="#raspisanie">Поезд</a>
-      <a href="#ustav">Правила</a>
-      <a href="#taktika">Тактика</a>
-      <a href="#novosti">Новости</a>
-    </div>
-  </div>
+<div class="nav-inner">
+<span class="nav-brand">
+<img alt="" class="nav-logo" src="data:image/png;base64,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"/>
+<span class="clan-title">GoldenDRAGON</span> <span class="server-tag" style="color:var(--ash-dim); font-weight:400; font-family:'Cormorant Garamond',serif; font-size:15px;">· 104</span>
+</span>
+<button aria-controls="site-menu" aria-expanded="false" class="nav-toggle" type="button">Меню</button>
+<div class="nav-links" id="site-menu">
+<a href="#vs-week">VS</a>
+<a href="#rukovodstvo">Руководство</a>
+<a href="#raspisanie">Поезд</a>
+<a href="#ustav">Правила</a>
+<a href="#taktika">Тактика</a>
+<a href="#novosti">Новости</a>
+</div>
+</div>
 </nav>
-
 <header class="hero">
-  <div class="hero-frame" aria-hidden="true"></div>
-  <div class="mobile-title-bright" aria-hidden="true">
-    <div class="m-title">GOLDEN DRAGON</div>
-    <div class="m-meta">[DraG] · SERVER 104</div>
-    <div class="m-motto">ВМЕСТЕ МЫ СИЛЬНЕЕ</div>
-  </div>
-  <div class="hero-content">
-    <div class="hero-kicker">АЛЬЯНС • 104 СЕРВЕР</div>
-    <h1>GoldenDRAGON</h1>
-    <p class="tag-line">[DraG] ОДНА КОМАНДА · ОДНА ЦЕЛЬ</p>
-    <p class="tagline">Вместе мы сильнее. Одна команда, одна цель, одна победа — а по пути ещё и мемы.</p>
-  </div>
+<div aria-hidden="true" class="hero-frame"></div>
+<div aria-hidden="true" class="mobile-title-bright">
+<div class="m-title">GOLDEN DRAGON</div>
+<div class="m-meta">[DraG] · SERVER 104</div>
+<div class="m-motto">ВМЕСТЕ МЫ СИЛЬНЕЕ</div>
+</div>
+<div class="hero-content">
+<div class="hero-kicker">АЛЬЯНС • 104 СЕРВЕР</div>
+<h1>GoldenDRAGON</h1>
+<p class="tag-line">[DraG] ОДНА КОМАНДА · ОДНА ЦЕЛЬ</p>
+<p class="tagline">Вместе мы сильнее. Одна команда, одна цель, одна победа — а по пути ещё и мемы.</p>
+</div>
 </header>
-
 <main class="wrap">
+<section class="intro">
+<h2>О нас</h2>
+<p class="section-lead">Штаб альянса, где правила понятны, поезд расписан, а мемы считаются стратегическим ресурсом.</p>
+<div class="manifest">
+<p>Торгуем <span class="flame-word">хорошим настроением</span>, собираем трофеи, проводим независимую экспертизу чувства юмора. Вход — с улыбкой и фото-доказательствами.</p>
+<p>Любим поболтать, <span class="flame-word">пожечь врагов</span> и создавать мемы быстрее, чем доходим до раскопок.</p>
+</div>
+</section>
+<section class="toc">
+<h2>Оглавление</h2>
+<p class="toc-sub">С чего начать знакомство с альянсом</p>
+<div class="toc-grid">
+<a class="toc-card glow featured" href="#novosti">
+<span class="badge-new">Главное</span>
+<span class="rune"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><path d="M4 19V6a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2Z"></path><path d="M8 8h9M8 12h7M8 16h5"></path></svg></span>
+<h3>Новости</h3>
+<p>Главные события альянса, объявления и свежие изменения — всё, что стоит знать прямо сейчас.</p>
+</a>
+<a class="toc-card" href="#vs-week">
+<span class="rune"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5"></path><path d="M4 4h4v4M20 4h-4v4M4 20h4v-4M20 20h-4v-4"></path></svg></span>
+<h3>VS</h3>
+<p>Что делать каждый день VS-события — от воскресенья до пятницы, по порядку.</p>
+</a>
+<a class="toc-card" href="#rukovodstvo">
+<span class="rune"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><path d="M4 10l3 2 5-6 5 6 3-2-2 10H6L4 10Z"></path></svg></span>
+<h3>Руководство</h3>
+<p>Кто есть кто в совете альянса — лидер и его правая рука.</p>
+</a>
+<a class="toc-card" href="#raspisanie">
+<span class="rune"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><path d="M5 5h14v14H5z"></path><path d="M8 3v4M16 3v4M3 9h18"></path><path d="M8 13h3M13 13h3M8 16h3"></path></svg></span>
+<h3>Расписание поезда</h3>
+<p>Кто садится в состав по дням недели — мест всего 20, даже если билет на руках.</p>
+</a>
+<a class="toc-card" href="#ustav">
+<span class="rune"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4Z"></path><path d="m8.5 12 2.2 2.2 4.8-5"></path></svg></span>
+<h3>Правила</h3>
+<p>В разработке у Fiafan.</p>
+</a>
+<a class="toc-card" href="#taktika">
+<span class="rune"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5Z"></path><path d="m2 17 10 5 10-5M2 12l10 5 10-5"></path><path d="M12 12v10"></path></svg></span>
+<h3>Тактика</h3>
+<p>Все гайды альянса: строительство, снаряжение, исследования, солдаты и герои.</p>
+</a>
+</div>
+</section>
+<section class="intro leader-section" id="rukovodstvo" style="padding-top:40px;">
+<h2>Руководство</h2>
+<div class="leader-grid">
+<div class="leader-card lead">
+<span class="leader-badge">Глава альянса</span>
+<h4>Furia0-0</h4>
+</div>
+<div class="leader-card">
+<span class="leader-badge">Дворецкий</span>
+<h4>Грибоедофф</h4>
+</div>
+<div class="leader-card">
+<span class="leader-badge">Богиня</span>
+<h4>Valkyrja</h4>
+</div>
+<div class="leader-card">
+<span class="leader-badge">Рекрутер</span>
+<h4>Хойд</h4>
+</div>
+<div class="leader-card">
+<span class="leader-badge">Полководец</span>
+<h4>Вольдемар34</h4>
+</div>
+</div>
+</section>
+<article class="article" id="vs-week">
+<p class="article-label">Раздел 01</p>
+<h2>VS</h2>
+<p>Общий план на всю неделю события VS. Порядок принципиален — не переучиваем солдат раньше пятницы и не снимаем галочки со строений раньше вторника.</p><p class="accordion-hint">Нажмите на день, чтобы развернуть подробности.</p>
+<details class="vs-day"><summary class="vs-day-title">Воскресенье</summary><ul>
+<li>Копим радар.</li>
+<li>Вечером отправляем отряды на сбор ресурсов так, чтобы они вернулись не раньше 5:00 мск.</li>
+<li>Строим, но галочки со строений не снимаем до вторника.</li>
+<li>Рожаем солдат небольшого для себя уровня и не переучиваем до пятницы (в пятницу улучшаем по порядку Р3 → Р4 → Р5 → Р6 → Р7, а не с Р3 сразу на Р7 — для этого нужны казармы разного уровня).</li>
+</ul></details>
 
-  <section class="intro">
-    <h2>О нас</h2>
-    <p class="section-lead">Штаб альянса, где правила понятны, поезд расписан, а мемы считаются стратегическим ресурсом.</p>
-    <div class="manifest">
-      <p>Торгуем <span class="flame-word">хорошим настроением</span>, собираем трофеи, проводим независимую экспертизу чувства юмора. Вход — с улыбкой и фото-доказательствами.</p>
-      <p>Любим поболтать, <span class="flame-word">пожечь врагов</span> и создавать мемы быстрее, чем доходим до раскопок.</p>
-    </div>
-  </section>
+<details class="vs-day"><summary class="vs-day-title">Понедельник</summary><ul>
+<li>Собираем радар.</li>
+<li>Весь день собираем ресурсы на плитках.</li>
+<li>Улучшаем самолёт.</li>
+<li>Опыт не тратим, но если не хватает до 9 сундуков — можно влить.</li>
+<li>Строим, но галочки со строений не снимаем до вторника.</li>
+<li>Рожаем солдат небольшого для себя уровня и не переучиваем до пятницы (порядок обучения — Р3 → Р4 → Р5 → Р6 → Р7).</li>
+</ul></details>
 
-  <section class="toc">
-    <h2>Оглавление</h2>
-    <p class="toc-sub">С чего начать знакомство с альянсом</p>
-    <div class="toc-grid">
+<details class="vs-day"><summary class="vs-day-title">Вторник</summary><ul>
+<li>Копим радар.</li>
+<li>Отправляем золотые спецоперации и грузовики.</li>
+<li>Снимаем галочки с построек.</li>
+<li>Ускоряем постройки.</li>
+<li>Нанимаем выживших.</li>
+<li>Рожаем солдат небольшого для себя уровня и не переучиваем до пятницы (порядок обучения — Р3 → Р4 → Р5 → Р6 → Р7).</li>
+</ul></details>
 
-      <a class="toc-card glow featured" href="#novosti">
-        <span class="badge-new">Главное</span>
-        <span class="rune"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V6a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2Z"/><path d="M8 8h9M8 12h7M8 16h5"/></svg></span>
-        <h3>Новости</h3>
-        <p>Главные события альянса, объявления и свежие изменения — всё, что стоит знать прямо сейчас.</p>
-      </a>
+<details class="vs-day"><summary class="vs-day-title">Среда</summary><ul>
+<li>Собираем радар.</li>
+<li>Исследования — в приоритете вкладка VS.</li>
+<li>Открываем сундуки с компонентами самолёта.</li>
+<li>Строим, но галочки со строений не снимаем.</li>
+<li>Рожаем солдат небольшого для себя уровня и не переучиваем до пятницы (порядок обучения — Р3 → Р4 → Р5 → Р6 → Р7).</li>
+</ul></details>
 
-      <a class="toc-card" href="#vs-week">
-        <span class="rune"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5"/><path d="M4 4h4v4M20 4h-4v4M4 20h4v-4M20 20h-4v-4"/></svg></span>
-        <h3>VS</h3>
-        <p>Что делать каждый день VS-события — от воскресенья до пятницы, по порядку.</p>
-      </a>
+<details class="vs-day"><summary class="vs-day-title">Четверг</summary><ul>
+<li>Копим радар.</li>
+<li>Нанимаем героев.</li>
+<li>Прокачиваем навыки героев (только 1-го отряда).</li>
+<li>Повышаем уровень героев.</li>
+<li>Строим, но галочки со строений не снимаем до вторника.</li>
+<li>Рожаем солдат небольшого для себя уровня и не переучиваем до пятницы (порядок обучения — Р3 → Р4 → Р5 → Р6 → Р7).</li>
+</ul></details>
 
-      <a class="toc-card" href="#rukovodstvo">
-        <span class="rune"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10l3 2 5-6 5 6 3-2-2 10H6L4 10Z"/></svg></span>
-        <h3>Руководство</h3>
-        <p>Кто есть кто в совете альянса — лидер и его правая рука.</p>
-      </a>
+<details class="vs-day"><summary class="vs-day-title">Пятница</summary><ul>
+<li>Собираем радар.</li>
+<li>Строим, но галочки со строений не снимаем до вторника.</li>
+<li>Обучаем солдат, которых рожали всю неделю, строго по порядку: Р3 → Р4 → Р5 → Р6 → Р7 — не перескакиваем с Р3 сразу на Р7, для этого нужны казармы разного уровня.</li>
+</ul></details>
 
-      <a class="toc-card" href="#raspisanie">
-        <span class="rune"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5h14v14H5z"/><path d="M8 3v4M16 3v4M3 9h18"/><path d="M8 13h3M13 13h3M8 16h3"/></svg></span>
-        <h3>Расписание поезда</h3>
-        <p>Кто садится в состав по дням недели — мест всего 20, даже если билет на руках.</p>
-      </a>
-
-      <a class="toc-card" href="#ustav">
-        <span class="rune"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span>
-        <h3>Правила</h3>
-        <p>В разработке у Fiafan.</p>
-      </a>
-
-      <a class="toc-card" href="#taktika">
-        <span class="rune"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/><path d="M12 12v10"/></svg></span>
-        <h3>Тактика</h3>
-        <p>Все гайды альянса: строительство, снаряжение, исследования, солдаты и герои.</p>
-      </a>
-
-    </div>
-  </section>
-
-  <section class="intro leader-section" id="rukovodstvo" style="padding-top:40px;">
-    <h2>Руководство</h2>
-    <div class="leader-grid">
-      <div class="leader-card lead">
-        <span class="leader-badge">Глава альянса</span>
-        <h4>Furia0-0</h4>
-      </div>
-      <div class="leader-card">
-        <span class="leader-badge">Дворецкий</span>
-        <h4>Грибоедофф</h4>
-      </div>
-      <div class="leader-card">
-        <span class="leader-badge">Богиня</span>
-        <h4>Valkyrja</h4>
-      </div>
-      <div class="leader-card">
-        <span class="leader-badge">Рекрутер</span>
-        <h4>Хойд</h4>
-      </div>
-      <div class="leader-card">
-        <span class="leader-badge">Полководец</span>
-        <h4>Вольдемар34</h4>
-      </div>
-    </div>
-  </section>
-
-  <article class="article" id="vs-week">
-    <p class="article-label">Раздел 01</p>
-    <h2>VS</h2>
-    <p>Общий план на всю неделю события VS. Порядок принципиален — не переучиваем солдат раньше пятницы и не снимаем галочки со строений раньше вторника.</p>
-
-    <h3>Воскресенье</h3>
-    <ul>
-      <li>Копим радар.</li>
-      <li>Вечером отправляем отряды на сбор ресурсов так, чтобы они вернулись не раньше 5:00 мск.</li>
-      <li>Строим, но галочки со строений не снимаем до вторника.</li>
-      <li>Рожаем солдат небольшого для себя уровня и не переучиваем до пятницы (в пятницу улучшаем по порядку Р3 → Р4 → Р5 → Р6 → Р7, а не с Р3 сразу на Р7 — для этого нужны казармы разного уровня).</li>
-    </ul>
-
-    <h3>Понедельник</h3>
-    <ul>
-      <li>Собираем радар.</li>
-      <li>Весь день собираем ресурсы на плитках.</li>
-      <li>Улучшаем самолёт.</li>
-      <li>Опыт не тратим, но если не хватает до 9 сундуков — можно влить.</li>
-      <li>Строим, но галочки со строений не снимаем до вторника.</li>
-      <li>Рожаем солдат небольшого для себя уровня и не переучиваем до пятницы (порядок обучения — Р3 → Р4 → Р5 → Р6 → Р7).</li>
-    </ul>
-
-    <h3>Вторник</h3>
-    <ul>
-      <li>Копим радар.</li>
-      <li>Отправляем золотые спецоперации и грузовики.</li>
-      <li>Снимаем галочки с построек.</li>
-      <li>Ускоряем постройки.</li>
-      <li>Нанимаем выживших.</li>
-      <li>Рожаем солдат небольшого для себя уровня и не переучиваем до пятницы (порядок обучения — Р3 → Р4 → Р5 → Р6 → Р7).</li>
-    </ul>
-
-    <h3>Среда</h3>
-    <ul>
-      <li>Собираем радар.</li>
-      <li>Исследования — в приоритете вкладка VS.</li>
-      <li>Открываем сундуки с компонентами самолёта.</li>
-      <li>Строим, но галочки со строений не снимаем.</li>
-      <li>Рожаем солдат небольшого для себя уровня и не переучиваем до пятницы (порядок обучения — Р3 → Р4 → Р5 → Р6 → Р7).</li>
-    </ul>
-
-    <h3>Четверг</h3>
-    <ul>
-      <li>Копим радар.</li>
-      <li>Нанимаем героев.</li>
-      <li>Прокачиваем навыки героев (только 1-го отряда).</li>
-      <li>Повышаем уровень героев.</li>
-      <li>Строим, но галочки со строений не снимаем до вторника.</li>
-      <li>Рожаем солдат небольшого для себя уровня и не переучиваем до пятницы (порядок обучения — Р3 → Р4 → Р5 → Р6 → Р7).</li>
-    </ul>
-
-    <h3>Пятница</h3>
-    <ul>
-      <li>Собираем радар.</li>
-      <li>Строим, но галочки со строений не снимаем до вторника.</li>
-      <li>Обучаем солдат, которых рожали всю неделю, строго по порядку: Р3 → Р4 → Р5 → Р6 → Р7 — не перескакиваем с Р3 сразу на Р7, для этого нужны казармы разного уровня.</li>
-    </ul>
-
-    <blockquote>Если вы закрыли все 9 сундуков и альянс побеждает - откладывайте ресурсы на следующую неделю.</blockquote>
-
-    <a class="back-to-top" href="#">↑ Наверх, к оглавлению</a>
-  </article>
-
-  <article class="article" id="raspisanie" style="--day-color:#e2591f;">
-    <p class="article-label">Раздел 02</p>
-    <h2>Расписание поезда</h2>
-    <p>Поезд — активность для всего альянса, но вагон берёт только 20 человек: остальные едут мимо, даже если билет на руках. По будням состав фиксированный, суббота и воскресенье — полный рандом.</p>
-
- <div class="schedule-grid">
+<blockquote>Если вы закрыли все 9 сундуков и альянс побеждает - откладывайте ресурсы на следующую неделю.</blockquote>
+<a class="back-to-top" href="#">↑ Наверх, к оглавлению</a>
+</article>
+<article class="article" id="raspisanie" style="--day-color:#e2591f;">
+<p class="article-label">Раздел 02</p>
+<h2>Расписание поезда</h2>
+<p>Поезд — активность для всего альянса, но вагон берёт только 20 человек: остальные едут мимо, даже если билет на руках. По будням состав фиксированный, суббота и воскресенье — полный рандом.</p>
+<div class="schedule-grid">
 <div class="day-card" style="--day-color:#3fae5c;">
 <div class="day-head">
 <span class="day-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><path d="M14 3 5 12l7 7 9-9-7-7Z"></path><path d="m12 7 5 5M6 18l-3 3M10 21h8"></path></svg></span>
@@ -565,67 +597,67 @@
 <ol start="11"><li>CrusherKilla</li><li>sunflowerkei</li><li>жека80</li><li>IRBIS777</li><li>Avengador</li><li>enotushka</li><li>Kot-Obormot</li><li>Ольчик94</li><li>Samuray-TR</li><li>Fiafan</li></ol>
 </div>
 </div>
-
-
 <div class="day-card reserve weekend" style="--day-color:#b88a32;">
 <span class="day-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><path d="M3 15c3-5 6-8 9-10 3 2 6 5 9 10-2-1-4-1-5 1-1-2-3-2-4-1-1-2-3-2-4-1-1-2-3-2-5 2Z"></path><path d="M6 5 4 3M18 5l2-2M9 9l1-2 2 2 2-2 1 2"></path></svg></span>
 <h4>Суббота · Воскресенье</h4>
 <span class="day-count">20 мест · полный рандом</span>
 <p>Выходные объединены: состав выбирается случайно из всех, кто на месте. Билет не гарантирует посадку.</p>
 </div></div>
-
-    <a class="back-to-top" href="#">↑ Наверх, к оглавлению</a>
-  </article>
-
-  <article class="article" id="ustav">
-    <p class="article-label">Раздел 03</p>
-    <h2>Правила</h2>
-
-    <p>В разработке у Fiafan.</p>
-
-    <a class="back-to-top" href="#">↑ Наверх, к оглавлению</a>
-  </article>
-
-  <article class="article" id="taktika">
-    <p class="article-label">Раздел 04</p>
-    <h2>Тактика</h2>
-
-    <p>Пять больших направлений развития. Наполните каждое своими наработками и порядком действий.</p>
-
-    <h3>Строительство</h3>
-    <p>В разработке.</p>
-
-    <h3>Снаряжение</h3>
-    <p>В разработке.</p>
-
-    <h3>Исследования</h3>
-    <p>В разработке.</p>
-
-    <h3>Солдаты</h3>
-    <p>В разработке.</p>
-
-    <h3>Герои</h3>
-    <p>В разработке.</p>
-
-    <a class="back-to-top" href="#">↑ Наверх, к оглавлению</a>
-  </article>
-
-  <article class="article" id="novosti">
-    <p class="article-label">Раздел 05</p>
-    <h2>Новости</h2>
-
-    <p>В разработке.</p>
-
-    <a class="back-to-top" href="#">↑ Наверх, к оглавлению</a>
-  </article>
-
+<a class="back-to-top" href="#">↑ Наверх, к оглавлению</a>
+</article>
+<article class="article rules-article" id="ustav">
+<p class="article-label">Раздел 03</p>
+<h2>Правила</h2>
+<p class="rules-intro">Свод правил альянсов на сервере. Раздел можно развернуть полностью, когда нужно ознакомиться с условиями.</p>
+<details class="rules-accordion">
+<summary class="rules-summary">
+  <span class="rules-summary-mark">⚔</span>
+  <span class="rules-summary-text"><strong>Открыть свод правил</strong><small>11 правил · нажмите, чтобы развернуть</small></span>
+  <span class="rules-summary-toggle">+</span>
+</summary>
+<div class="rules-list">
+  <section class="rule-card"><div class="rule-num">01</div><div class="rule-body"><h3>Атака на базы во время атаки на города запрещена</h3><p>Наказание: если атака, со стороны захватчика, атака прекращается, город остается у альянса защитника. Если атака от альянса защитника, город отдается без боя. Фактом нарушения будет отчет о нападении.</p></div></section>
+  <section class="rule-card"><div class="rule-num">02</div><div class="rule-body"><h3>Города 6 уровня</h3><p>Города 6 уровня принадлежат топ-3 альянсам с возможностью их передачи между друг другом по договоренности каждую неделю.</p></div></section>
+  <section class="rule-card"><div class="rule-num">03</div><div class="rule-body"><h3>Лимит городов</h3><p>Каждый альянс может иметь во владении не больше 4 городов. Альянс с 3мя городами нападению не подлежит.</p><div class="rule-note"><strong>Для справки, не входит в правила:</strong> всего на карте 90 городов. 6ур.-3 шт.; 5 ур.-4 шт.; 4 ур.-7 шт.; 3ур.-13 шт.; 2 ур.-23 шт.; 1 ур. -40 шт. 90 городов на 20 альянсов это каждому 4 города, остаток 10 городов для ниже топ-20.</div></div></section>
+  <section class="rule-card"><div class="rule-num">04</div><div class="rule-body"><h3>Города без хозяина</h3><p>Города без хозяина захватываются без каких либо договоренностей, кто успел, того и тапки.</p></div></section>
+  <section class="rule-card"><div class="rule-num">05</div><div class="rule-body"><h3>Запрет на грабежи и нападения на своем сервере</h3><p>Нельзя грабить спец-ии/транспорт/поезда и нападать на плитки (за исключением договорных боев) на своем сервере.</p></div></section>
+  <section class="rule-card"><div class="rule-num">06</div><div class="rule-body"><h3>Участие в защите и атаке города</h3><p>Участие в защите/атаке города по разу в неделю, более по обоюдному согласию. Т.е. в неделю будет одна защита города без возможности отказа сопернику и одна атака города.</p><p>Важно: если до этого другой альянс договорился об атаке на город с альянсом, который вы тоже хотели атаковать, то вам могут законно отказать. Остальные атаки/защиты свыше только по взаимному соглашению сторон.</p></div></section>
+  <section class="rule-card"><div class="rule-num">07</div><div class="rule-body"><h3>Разовое и неоднократное нарушение</h3><p>Игрок, разово допустивший нарушение правил, возмещает причененный ущерб своими золотыми спецоперациями, грузовиками или ресурсами (на усмотрение сторон) в случае отказа - сжегание базы нарушителя до фундамента силами клана, с уведомлением главы нарушителя (нарушители бывают разными). В случае неоднократных нарушений правил - изгнание из клана.</p></div></section>
+  <section class="rule-card"><div class="rule-num">08</div><div class="rule-body"><h3>Нарушение со стороны клана</h3><p>Клан, допустивший нарушение правил (массовые нарушения 2мя и более игроками клана), либо изгоняет нарушителей, либо выкладывает в чат мира активом клана (не менее 10 игроков) координаты золотых спецопераций и грузовиков, которые подлежат разграблению всем сервером.</p><p>В случае отказа, клан находится вне правил и с ним могут всякое вытворять и кто желает), до выполнения выше указанного условия.</p></div></section>
+  <section class="rule-card"><div class="rule-num">09</div><div class="rule-body"><h3>Нападения на базы</h3><p>На сервере отсутствует нап. Атаки на базы, состоящие в клане запрещены (за исключением договорных боев). Без клана - можно атаковать любую базу, а так же с ником командора при нахождении в клане, если он не ответил на личное сообщение.</p></div></section>
+  <section class="rule-card"><div class="rule-num">10</div><div class="rule-body"><h3>Оскорбления в чатах</h3><p>Оскорбления в чатах, дело двух игроков, сами разберутся. В случае атаки базы, клан имеет право крепить, атаковать имеют право друг друга только эти два собеседника.</p></div></section>
+  <section class="rule-card"><div class="rule-num">11</div><div class="rule-body"><h3>Столица и ротация топ-3</h3><p>Столица: ротация каждые 2 недели между альянсами топ-3. Падение рейтинга (БМ): если альянс из топ3 опустился в рейтинге БМ и не вернул свой рейтинг по четверг включительно, в пятницу он передает город 6у новому клану топ3 без боя.</p></div></section>
+</div>
+</details>
+<a class="back-to-top" href="#">↑ Наверх, к оглавлению</a>
+</article>
+<article class="article" id="taktika">
+<p class="article-label">Раздел 04</p>
+<h2>Тактика</h2>
+<p>Пять больших направлений развития. Наполните каждое своими наработками и порядком действий.</p>
+<h3>Строительство</h3>
+<p>В разработке.</p>
+<h3>Снаряжение</h3>
+<p>В разработке.</p>
+<h3>Исследования</h3>
+<p>В разработке.</p>
+<h3>Солдаты</h3>
+<p>В разработке.</p>
+<h3>Герои</h3>
+<p>В разработке.</p>
+<a class="back-to-top" href="#">↑ Наверх, к оглавлению</a>
+</article>
+<article class="article" id="novosti">
+<p class="article-label">Раздел 05</p>
+<h2>Новости</h2>
+<p>В разработке.</p>
+<a class="back-to-top" href="#">↑ Наверх, к оглавлению</a>
+</article>
 </main>
-
 <footer>
-  <p>GoldenDRAGON — одна команда, одна цель, одна победа</p>
-  <p class="foot-tag">СЕРВЕР 104</p>
+<p>GoldenDRAGON — одна команда, одна цель, одна победа</p>
+<p class="foot-tag">СЕРВЕР 104</p>
 </footer>
-
 <script>
 (() => {
   const nav = document.querySelector('nav');
@@ -650,6 +682,5 @@
   targets.forEach(t => observer.observe(t));
 })();
 </script>
-
 </body>
 </html>
