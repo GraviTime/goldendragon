@@ -135,6 +135,43 @@
   .day-card.reserve h4{font-size:20px}
   .day-card.reserve p{max-width:36ch;margin:10px 0 0;color:var(--ash-dim);font:italic 16px/1.45 'Cormorant Garamond',serif}.day-card.weekend{background:radial-gradient(circle at 50% 18%,rgba(184,138,50,.10),transparent 34%),linear-gradient(180deg,rgba(31,20,13,.98),rgba(18,11,7,.98))}.day-card.weekend h4{font-size:18px;color:var(--gold-hot)}.day-card.weekend .day-icon{filter:drop-shadow(0 0 12px rgba(184,138,50,.34))}
 
+
+  /* TRAIN CALENDAR – collapsible, data-driven from the alliance rota */
+  .train-calendar-accordion{max-width:none;margin:28px 0 0;border-color:rgba(210,163,58,.24);background:linear-gradient(180deg,rgba(14,12,10,.96),rgba(6,9,13,.97))}
+  .train-calendar-accordion .rules-summary{background:linear-gradient(90deg,rgba(198,154,43,.13),rgba(39,139,197,.05),transparent)}
+  .train-calendar-accordion .rules-summary:hover{background:linear-gradient(90deg,rgba(198,154,43,.18),rgba(39,139,197,.08),transparent)}
+  .train-calendar-accordion[open] .rules-summary{border-bottom-color:rgba(210,163,58,.24)}
+  .train-calendar-wrap{padding:0 16px 18px;overflow-x:auto;max-width:100%;}
+  .train-calendar-table{width:100%;min-width:760px;border-collapse:separate;border-spacing:0;color:var(--ash);font-size:14px;}
+  .train-calendar-table th{position:sticky;top:0;z-index:2;text-align:left;padding:13px 14px;background:#17120e;color:var(--gold-hot);font:700 12px/1.25 'Cinzel Decorative',serif;letter-spacing:.45px;border-bottom:1px solid rgba(210,163,58,.35);white-space:nowrap;}
+  .train-calendar-table td{padding:9px 14px;border-bottom:1px solid rgba(210,163,58,.09);background:rgba(4,7,10,.43);white-space:nowrap;}
+  .train-calendar-table tbody tr:hover td{background:rgba(210,163,58,.07)}
+  .train-calendar-table .calendar-date{font-variant-numeric:tabular-nums;font-weight:700;}
+  .train-calendar-table .calendar-player{font-weight:600;color:#f3ead9;}
+  .train-calendar-table .cal-monday .calendar-date{color:#f0c95f;border-left:2px solid #c69a2b}
+  .train-calendar-table .cal-tuesday .calendar-date{color:#7ed0ff;border-left:2px solid #278bc5}
+  .train-calendar-table .cal-wednesday .calendar-date{color:#8bf1a8;border-left:2px solid #2e9b58}
+  .train-calendar-table .cal-thursday .calendar-date{color:#dfb0ff;border-left:2px solid #a34ad4}
+  .train-calendar-table .cal-friday .calendar-date{color:#ffaaa6;border-left:2px solid #d93b3b}
+  .train-calendar-table .cal-weekend td{background:rgba(130,140,155,.045);color:#c6c5c4}
+  .train-calendar-table .cal-weekend .calendar-date{border-left:2px solid #788391;color:#c5ccd5}
+  .rank-pill{display:inline-block;min-width:30px;padding:3px 7px;text-align:center;border:1px solid currentColor;border-radius:3px;font:700 11px/1.1 'Cinzel Decorative',serif;letter-spacing:.2px;background:rgba(255,255,255,.035)}
+  .rank-r5{color:#f8cb58;background:rgba(248,203,88,.08)}
+  .rank-r4{color:#78c5ff;background:rgba(66,160,240,.08)}
+  .rank-r3{color:#e49aff;background:rgba(186,91,232,.08)}
+  .rank-r2{color:#70e5d4;background:rgba(36,205,174,.08)}
+  .rank-empty{color:#989fa8;border-color:rgba(152,159,168,.25);background:transparent}
+  .calendar-dash{color:#8d9298}
+  @media(max-width:640px){
+    .train-calendar-wrap{padding:0 8px 12px}
+    .train-calendar-table{min-width:700px;font-size:13px}
+    .train-calendar-table th,.train-calendar-table td{padding:9px 10px}
+    .train-calendar-accordion .rules-summary{padding:16px 12px;gap:10px}
+    .train-calendar-accordion .rules-summary-mark{width:36px;height:36px;font-size:16px}
+    .train-calendar-accordion .rules-summary-text strong{font-size:15px}
+    .train-calendar-accordion .rules-summary-text small{font-size:13px}
+  }
+
   /* FOOTER */
   footer{position:relative;z-index:1;padding:64px 28px 76px;text-align:center;border-top:1px solid rgba(210,163,58,.14);background:linear-gradient(180deg,rgba(8,6,4,.2),rgba(8,6,4,.7))}
   footer::before{content:"✦";display:block;margin-bottom:12px;color:var(--gold);font-size:15px}
@@ -909,67 +946,146 @@
 <blockquote>Если вы закрыли все 9 сундуков и альянс побеждает - откладывайте ресурсы на следующую неделю.</blockquote>
 <a class="back-to-top" href="#">↑ Наверх, к оглавлению</a>
 </article>
-<article class="article" id="raspisanie" style="--day-color:#e2591f;">
+<article class="article" id="raspisanie" style="--day-color:#c69a2b;">
 <p class="article-label">Раздел 02</p>
 <h2>Расписание поезда</h2>
-<p>Поезд – активность для всего альянса, но вагон берёт только 20 человек: остальные едут мимо, даже если билет на руках. По будням состав фиксированный, суббота и воскресенье – полный рандом.</p>
+<p>В будни состав закреплён за своим днём: по 20 участников на каждый рейс. В субботу и воскресенье состав выбирается случайно из активных участников. Очередь VIP идёт без остановок и продолжается также в выходные; машинист на выходные назначается отдельно по заслугам.</p>
 <div class="schedule-grid">
-<div class="day-card" style="--day-color:#3fae5c;">
+<div class="day-card" style="--day-color:#c69a2b;">
 <div class="day-head">
-<span class="day-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><path d="M14 3 5 12l7 7 9-9-7-7Z"></path><path d="m12 7 5 5M6 18l-3 3M10 21h8"></path></svg></span>
+<span class="day-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 16.8 21.5 3 14.2 22l-3.1-7.2-8.6 2Z"/><path d="m11.1 14.8 4.8-4.6"/></svg></span>
 <div><h4>Понедельник</h4><span class="day-count">20 человек</span></div>
 </div>
 <div class="roster">
-<ol start="1"><li>Chivas</li><li>Valkyrja</li><li>Хойд</li><li>FeNrir</li><li>Furia0-0</li><li>MMK1</li><li>Грибоедофф</li><li>Вольдемар34</li><li>PATRIK</li><li>May1512</li></ol>
-<ol start="11"><li>кноппа</li><li>Barabashka1234</li><li>Комбат89</li><li>Самалёт</li><li>мама-Мия</li><li>Tazz34</li><li>Vavashkin</li><li>Reyb</li><li>Aladdin1</li><li>Dev1</li></ol>
+<ol start="1"><li>IRBIS777</li><li>Valkyrja</li><li>Бао-баб</li><li>GooTanTak</li><li>Пухович10</li><li>seahunter</li><li>CrusherKilla</li><li>Kot-Obormot</li><li>Dmitryvl90</li><li>Daenerys</li></ol>
+<ol start="11"><li>Kirsik24</li><li>Nomun</li><li>CaesaR</li><li>kwag</li><li>Хесед</li><li>дальнобой39</li><li>формула1</li><li>Artem54rus</li><li>Narri</li><li>Tugbaaa</li></ol>
 </div>
 </div>
-<div class="day-card" style="--day-color:#3a8ddb;">
+<div class="day-card" style="--day-color:#278bc5;">
 <div class="day-head">
-<span class="day-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 3 5 6v5c0 5 3 8 7 10 4-2 7-5 7-10V6l-7-3Z"></path><path d="M12 7v8M9 10h6"></path></svg></span>
+<span class="day-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V10h8v11M13 21V6h6v15M3 10l6-6 6 6M15 6h4M7.5 13h3M7.5 16h3M16 10h1M16 13h1M16 16h1"/></svg></span>
 <div><h4>Вторник</h4><span class="day-count">20 человек</span></div>
 </div>
 <div class="roster">
-<ol start="1"><li>Saveli</li><li>ПИЗДЕЦ</li><li>DimonnX</li><li>morpheus24</li><li>julija</li><li>KARDAN94</li><li>OLEG56</li><li>Бао-Баб</li><li>архимагистр</li><li>DEN13</li></ol>
-<ol start="11"><li>-AMAZONKA-</li><li>DEALER</li><li>Tanka00</li><li>ИванП</li><li>balzebul</li><li>Пешкин</li><li>Dmitryvl90</li><li>TURRAID</li><li>KaTriiN</li><li>Иса23</li></ol>
+<ol start="1"><li>shaman1</li><li>Barabashka1234</li><li>Санчиииз</li><li>TODD</li><li>Tazz34</li><li>Комбат89</li><li>Tanka00</li><li>sunflower777</li><li>Justmove</li><li>chetcetinoglu</li></ol>
+<ol start="11"><li>balzebul</li><li>Morlak</li><li>Самалёт</li><li>DarkSoul48</li><li>экз</li><li>linaaa</li><li>Maria`s</li><li>bogdanchik</li><li>Vitantos</li><li>Skif1989</li></ol>
 </div>
 </div>
-<div class="day-card" style="--day-color:#9a5fd9;">
+<div class="day-card" style="--day-color:#2e9b58;">
 <div class="day-head">
-<span class="day-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><path d="m4 9 2-4 4 1 2-3 2 3 4-1 2 4-2 8H6L4 9Z"></path><path d="M7 17v3h10v-3"></path></svg></span>
+<span class="day-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9.5" cy="9.5" r="5.5"/><path d="m14 14 6.5 6.5M7 9.5h5M9.5 7v5M16 3h5v5M18.5 5.5v0"/></svg></span>
 <div><h4>Среда</h4><span class="day-count">20 человек</span></div>
 </div>
 <div class="roster">
-<ol start="1"><li>Кухня</li><li>Shelviiz</li><li>Сераф</li><li>Mercuriy</li><li>Lamaka</li><li>Maria's</li><li>PHANTOM67</li><li>Paramon86</li><li>Сумрак</li><li>Ko3bipHbiu</li></ol>
-<ol start="11"><li>Roma48</li><li>SIS777</li><li>Keks</li><li>лорден</li><li>Katarinaavo</li><li>Demonos2</li><li>РУССКИЙ77</li><li>turist38</li><li>Rinkoy</li><li>DarkSoul48</li></ol>
+<ol start="1"><li>Вольдемар34</li><li>Chivas</li><li>Reyb</li><li>TURRAID</li><li>ShumoizoL</li><li>Иса23</li><li>Ольчик94</li><li>ИванП</li><li>Dudusik</li><li>Hurremm</li></ol>
+<ol start="11"><li>РУССКИЙ77</li><li>KARDAN94</li><li>Paramon86</li><li>Ddallas</li><li>sids</li><li>janka</li><li>Sevgi</li><li>Overmind</li><li>марс7401</li><li>Nik46</li></ol>
 </div>
 </div>
-<div class="day-card" style="--day-color:#d99a1c;">
+<div class="day-card" style="--day-color:#a34ad4;">
 <div class="day-head">
-<span class="day-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><path d="M6 10V7l3-3h6l3 3v3l-2 7H8l-2-7Z"></path><path d="M9 11h6M10 14h4"></path></svg></span>
+<span class="day-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a4 4 0 0 0-4 4v1.2a5.2 5.2 0 0 0 10.4 0V7a4 4 0 0 0-4-4"/><path d="M4.5 21v-2.1a5.8 5.8 0 0 1 5.8-5.8h3.4a5.8 5.8 0 0 1 5.8 5.8V21M9 17l3 2 3-2"/></svg></span>
 <div><h4>Четверг</h4><span class="day-count">20 человек</span></div>
 </div>
 <div class="roster">
-<ol start="1"><li>JaDy</li><li>Vitantos</li><li>Nomun</li><li>Grex69</li><li>Ddallas</li><li>ПростоРита</li><li>CaesaR</li><li>shaman1</li><li>серж47русс</li><li>толик 61</li></ol>
-<ol start="11"><li>justmove</li><li>Маромедариф</li><li>Kirsik24</li><li>Skif1989</li><li>NOHCHO20</li><li>iAndi</li><li>Aizupia</li><li>TODD</li><li>Old-Gringo</li><li>Пухович10</li></ol>
+<ol start="1"><li>Fiafan</li><li>Avengador</li><li>Katarinaavo</li><li>Алинka</li><li>May1512</li><li>DimonnX</li><li>архимагистр</li><li>Сумрак</li><li>PHANTOM67</li><li>Сераф</li></ol>
+<ol start="11"><li>Трампушка</li><li>DEALER</li><li>Grex69</li><li>Vovashkin</li><li>ПростоРита</li><li>Ko3bipHbiu</li><li>Irusik1602</li><li>Георгi1i1</li><li>Rinkoy</li><li>Bum1808</li></ol>
 </div>
 </div>
-<div class="day-card" style="--day-color:#d9462f;">
+<div class="day-card" style="--day-color:#d93b3b;">
 <div class="day-head">
-<span class="day-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 2c1 4 5 6 5 11a5 5 0 0 1-10 0c0-3 2-5 3-7 1 2 2 3 2 6 2-2 2-5 0-10Z"></path><path d="M8 19h8"></path></svg></span>
+<span class="day-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 3 4 4-3 3-4-4M19 3l-4 4 3 3 4-4M4 20l6-6M20 20l-6-6M8 14l6-6M10 8l6 6"/><path d="m3 21 5-5M21 21l-5-5"/></svg></span>
 <div><h4>Пятница</h4><span class="day-count">20 человек</span></div>
 </div>
 <div class="roster">
-<ol start="1"><li>seahunter</li><li>Roggia</li><li>chetcetinoglu</li><li>ЛениваяПанда</li><li>марс7401</li><li>экс</li><li>RCH</li><li>Ryaha38rus</li><li>Выдра</li><li>СТОК</li></ol>
-<ol start="11"><li>CrusherKilla</li><li>sunflowerkei</li><li>жека80</li><li>IRBIS777</li><li>Avengador</li><li>enotushka</li><li>Kot-Obormot</li><li>Ольчик94</li><li>Samuray-TR</li><li>Fiafan</li></ol>
+<ol start="1"><li>AMAZONKA</li><li>мститель52</li><li>Keks</li><li>лорден</li><li>Saveli</li><li>Lamaka</li><li>Aladdin1</li><li>Roma48</li><li>ПИЗДЕЦ</li><li>Форестер</li></ol>
+<ol start="11"><li>OLEG56</li><li>Aizupia</li><li>SIS777</li><li>кнопа</li><li>Merkuriy</li><li>жека80</li><li>Navi68</li><li>толян61</li><li>turist38</li><li>серж47русс</li></ol>
 </div>
 </div>
 <div class="day-card reserve weekend" style="--day-color:#b88a32;">
-<span class="day-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><path d="M3 15c3-5 6-8 9-10 3 2 6 5 9 10-2-1-4-1-5 1-1-2-3-2-4-1-1-2-3-2-4-1-1-2-3-2-5 2Z"></path><path d="M6 5 4 3M18 5l2-2M9 9l1-2 2 2 2-2 1 2"></path></svg></span>
+<span class="day-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15c3-5 6-8 9-10 3 2 6 5 9 10-2-1-4-1-5 1-1-2-3-2-4-1-1-2-3-2-4-1-1-2-3-2-5 2Z"/><path d="M6 5 4 3M18 5l2-2M9 9l1-2 2 2 2-2 1 2"/></svg></span>
 <h4>Суббота · Воскресенье</h4>
-<span class="day-count">20 мест · полный рандом</span>
-<p>Выходные объединены: состав выбирается случайно из всех, кто на месте. Билет не гарантирует посадку.</p>
-</div></div>
+<span class="day-count">20 мест · свободный состав</span>
+<p>Фиксированного списка участников нет. VIP-очередь продолжается по календарю, а машинист определяется отдельно.</p>
+</div>
+</div>
+<details class="rules-accordion train-calendar-accordion">
+<summary class="rules-summary">
+<span class="rules-summary-mark" aria-hidden="true">▦</span>
+<span class="rules-summary-text"><strong>Календарь машинистов и VIP</strong><small>26.10.2026 — 28.12.2026 · все назначения по датам</small></span>
+<span class="rules-summary-toggle" aria-hidden="true">+</span>
+</summary>
+<div class="train-calendar-wrap">
+<table class="train-calendar-table">
+<thead><tr><th>Дата</th><th>День недели</th><th>Машинист</th><th>Ранг</th><th>VIP</th><th>Ранг</th></tr></thead>
+<tbody>
+<tr class="cal-monday"><td class="calendar-date">26.10.2026</td><td>Понедельник</td><td class="calendar-player">IRBIS777</td><td><span class="rank-pill rank-r5">р5</span></td><td class="calendar-player">Бао-баб</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-tuesday"><td class="calendar-date">27.10.2026</td><td>Вторник</td><td class="calendar-player">shaman1</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Санчиииз</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-wednesday"><td class="calendar-date">28.10.2026</td><td>Среда</td><td class="calendar-player">Вольдемар34</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Reyb</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-thursday"><td class="calendar-date">29.10.2026</td><td>Четверг</td><td class="calendar-player">Fiafan</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Justmove</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-friday"><td class="calendar-date">30.10.2026</td><td>Пятница</td><td class="calendar-player">AMAZONKA</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Keks</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">31.10.2026</td><td>Суббота</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">GooTanTak</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">01.11.2026</td><td>Воскресенье</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">TODD</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-monday"><td class="calendar-date">02.11.2026</td><td>Понедельник</td><td class="calendar-player">Valkyrja</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">TURRAID</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-tuesday"><td class="calendar-date">03.11.2026</td><td>Вторник</td><td class="calendar-player">Barabashka1234</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Katarinaavo</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-wednesday"><td class="calendar-date">04.11.2026</td><td>Среда</td><td class="calendar-player">Chivas</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">лорден</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-thursday"><td class="calendar-date">05.11.2026</td><td>Четверг</td><td class="calendar-player">Fiafan</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Пухович10</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-friday"><td class="calendar-date">06.11.2026</td><td>Пятница</td><td class="calendar-player">мститель52</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Tazz34</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">07.11.2026</td><td>Суббота</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">ShumoizoL</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">08.11.2026</td><td>Воскресенье</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">Алинka</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-monday"><td class="calendar-date">09.11.2026</td><td>Понедельник</td><td class="calendar-player">IRBIS777</td><td><span class="rank-pill rank-r5">р5</span></td><td class="calendar-player">Saveli</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-tuesday"><td class="calendar-date">10.11.2026</td><td>Вторник</td><td class="calendar-player">shaman1</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">seahunter</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-wednesday"><td class="calendar-date">11.11.2026</td><td>Среда</td><td class="calendar-player">Вольдемар34</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Комбат89</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-thursday"><td class="calendar-date">12.11.2026</td><td>Четверг</td><td class="calendar-player">Fiafan</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Иса23</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-friday"><td class="calendar-date">13.11.2026</td><td>Пятница</td><td class="calendar-player">AMAZONKA</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">May1512</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">14.11.2026</td><td>Суббота</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">Lamaka</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">15.11.2026</td><td>Воскресенье</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">CrusherKilla</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-monday"><td class="calendar-date">16.11.2026</td><td>Понедельник</td><td class="calendar-player">Valkyrja</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Tanka00</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-tuesday"><td class="calendar-date">17.11.2026</td><td>Вторник</td><td class="calendar-player">Barabashka1234</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Ольчик94</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-wednesday"><td class="calendar-date">18.11.2026</td><td>Среда</td><td class="calendar-player">Chivas</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">DimonnX</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-thursday"><td class="calendar-date">19.11.2026</td><td>Четверг</td><td class="calendar-player">Fiafan</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Aladdin1</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-friday"><td class="calendar-date">20.11.2026</td><td>Пятница</td><td class="calendar-player">мститель52</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Kot-Obormot</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">21.11.2026</td><td>Суббота</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">sunflower777</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">22.11.2026</td><td>Воскресенье</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">ИванП</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-monday"><td class="calendar-date">23.11.2026</td><td>Понедельник</td><td class="calendar-player">IRBIS777</td><td><span class="rank-pill rank-r5">р5</span></td><td class="calendar-player">архимагистр</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-tuesday"><td class="calendar-date">24.11.2026</td><td>Вторник</td><td class="calendar-player">shaman1</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Roma48</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-wednesday"><td class="calendar-date">25.11.2026</td><td>Среда</td><td class="calendar-player">Вольдемар34</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Dmitryvl90</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-thursday"><td class="calendar-date">26.11.2026</td><td>Четверг</td><td class="calendar-player">Fiafan</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Avengador</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-friday"><td class="calendar-date">27.11.2026</td><td>Пятница</td><td class="calendar-player">AMAZONKA</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Dudusik</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">28.11.2026</td><td>Суббота</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">Сумрак</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">29.11.2026</td><td>Воскресенье</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">ПИЗДЕЦ</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-monday"><td class="calendar-date">30.11.2026</td><td>Понедельник</td><td class="calendar-player">Valkyrja</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Daenerys</td><td><span class="rank-pill rank-r3">р3</span></td></tr>
+<tr class="cal-tuesday"><td class="calendar-date">01.12.2026</td><td>Вторник</td><td class="calendar-player">Barabashka1234</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">chetcetinoglu</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-wednesday"><td class="calendar-date">02.12.2026</td><td>Среда</td><td class="calendar-player">Chivas</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Hurremm</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-thursday"><td class="calendar-date">03.12.2026</td><td>Четверг</td><td class="calendar-player">Fiafan</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">PHANTOM67</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-friday"><td class="calendar-date">04.12.2026</td><td>Пятница</td><td class="calendar-player">мститель52</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Форестер</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">05.12.2026</td><td>Суббота</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">Kirsik24</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">06.12.2026</td><td>Воскресенье</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">balzebul</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-monday"><td class="calendar-date">07.12.2026</td><td>Понедельник</td><td class="calendar-player">IRBIS777</td><td><span class="rank-pill rank-r5">р5</span></td><td class="calendar-player">РУССКИЙ77</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-tuesday"><td class="calendar-date">08.12.2026</td><td>Вторник</td><td class="calendar-player">shaman1</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Сераф</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-wednesday"><td class="calendar-date">09.12.2026</td><td>Среда</td><td class="calendar-player">Вольдемар34</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">OLEG56</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-thursday"><td class="calendar-date">10.12.2026</td><td>Четверг</td><td class="calendar-player">Fiafan</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Nomun</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-friday"><td class="calendar-date">11.12.2026</td><td>Пятница</td><td class="calendar-player">AMAZONKA</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Morlak</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">12.12.2026</td><td>Суббота</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">KARDAN94</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">13.12.2026</td><td>Воскресенье</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">Трампушка</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-monday"><td class="calendar-date">14.12.2026</td><td>Понедельник</td><td class="calendar-player">Valkyrja</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Aizupia</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-tuesday"><td class="calendar-date">15.12.2026</td><td>Вторник</td><td class="calendar-player">Barabashka1234</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">CaesaR</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-wednesday"><td class="calendar-date">16.12.2026</td><td>Среда</td><td class="calendar-player">Chivas</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Самалёт</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-thursday"><td class="calendar-date">17.12.2026</td><td>Четверг</td><td class="calendar-player">Fiafan</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Paramon86</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-friday"><td class="calendar-date">18.12.2026</td><td>Пятница</td><td class="calendar-player">мститель52</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">DEALER</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">19.12.2026</td><td>Суббота</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">SIS777</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">20.12.2026</td><td>Воскресенье</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">kwag</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-monday"><td class="calendar-date">21.12.2026</td><td>Понедельник</td><td class="calendar-player">IRBIS777</td><td><span class="rank-pill rank-r5">р5</span></td><td class="calendar-player">DarkSoul48</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-tuesday"><td class="calendar-date">22.12.2026</td><td>Вторник</td><td class="calendar-player">shaman1</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Ddallas</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-wednesday"><td class="calendar-date">23.12.2026</td><td>Среда</td><td class="calendar-player">Вольдемар34</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Grex69</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-thursday"><td class="calendar-date">24.12.2026</td><td>Четверг</td><td class="calendar-player">Fiafan</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">кнопа</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-friday"><td class="calendar-date">25.12.2026</td><td>Пятница</td><td class="calendar-player">AMAZONKA</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Хесед</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">26.12.2026</td><td>Суббота</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">экз</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-weekend"><td class="calendar-date">27.12.2026</td><td>Воскресенье</td><td class="calendar-player"><span class="calendar-dash">—</span></td><td><span class="rank-pill rank-empty">—</span></td><td class="calendar-player">Vovashkin</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+<tr class="cal-monday"><td class="calendar-date">28.12.2026</td><td>Понедельник</td><td class="calendar-player">Valkyrja</td><td><span class="rank-pill rank-r4">р4</span></td><td class="calendar-player">Merkuriy</td><td><span class="rank-pill rank-r2">р2</span></td></tr>
+</tbody>
+</table>
+</div>
+</details>
 <a class="back-to-top" href="#">↑ Наверх, к оглавлению</a>
 </article>
 <article class="article rules-article" id="ustav">
